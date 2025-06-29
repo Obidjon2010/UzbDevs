@@ -1,0 +1,116 @@
+#socialLinks {
+  display: none;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+button {
+    background-color: lightskyblue;
+    border: 1px solid blue;
+}
+
+.btn {
+  background-color: darkgray;
+}
+
+#socialLinks.show {
+  display: flex !important;
+  animation: fadeInUpLinks 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+@keyframes fadeInUpLinks {
+  0% {
+    transform: translateY(40px) scale(0.95);
+  }
+
+  50% {
+    transform: translateY(-8px) scale(1.03);
+  }
+
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+#socialLinks a {
+  opacity: 0;
+  transform: translateY(30px);
+  pointer-events: none;
+}
+
+#socialLinks.show a {
+  opacity: 1;
+  transform: translateY(0);
+  animation: fadeInLink 0.5s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  pointer-events: auto;
+}
+
+#socialLinks.show a:nth-child(1) {
+  animation-delay: 0.05s;
+}
+#socialLinks.show a:nth-child(2) {
+  animation-delay: 0.15s;
+}
+#socialLinks.show a:nth-child(3) {
+  animation-delay: 0.25s;
+}
+
+@keyframes fadeInLink {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+#followBtn {
+  transition: transform 0.2s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.2s;
+}
+
+#followBtn:active {
+  transform: scale(0.95) rotate(-2deg);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#socialLinks a {
+  min-width: 140px;
+  margin: 0 5px;
+  font-size: 1.1rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+
+#socialLinks a:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.13);
+}
+
+@media (max-width: 768px) {
+  #socialLinks {
+    flex-direction: column;
+    gap: 8px;
+  }
+  #socialLinks a {
+    min-width: 100px;
+    font-size: 1rem;
+    padding: 8px 0;
+    width: 100%;
+    text-align: center;
+  }
+}
